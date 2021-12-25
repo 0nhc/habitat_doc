@@ -28,10 +28,10 @@ sudo apt-get install ros-noetic-rtabmap-ros
 catkin_make
 echo 'export PYTHONPATH=$PYTHONPATH:~/habitat_ros_ws/src/ros_x_habitat' >> ~/.bashrc
 ```
-然后如果catkin_make报错的话应该就是缺少ros依赖的问题 缺什么装什么了只能 有问题可以问我
-然后运行habitat的话具体的配置文件什么的
-应该是在~/habitat_ros_ws/src/ros_x_habitat/data
-这些可能也会有问题 如果运行报错建议问下飞哥或者泽浩
+然后如果catkin_make报错的话应该就是缺少ros依赖的问题 缺什么装什么了只能 有问题可以问我</br>
+然后运行habitat的话具体的配置文件什么的</br>
+应该是在~/habitat_ros_ws/src/ros_x_habitat/data</br>
+这些可能也会有问题 如果运行报错建议问下飞哥或者泽浩</br>
 
 * 2.4 运行指令
  启动时电脑必须接着PS4手柄 要不然会启动不了
@@ -39,8 +39,8 @@ echo 'export PYTHONPATH=$PYTHONPATH:~/habitat_ros_ws/src/ros_x_habitat' >> ~/.ba
 cd ~/habitat_ros_ws/src/ros_x_habitat
 python3 src/scripts/roam_with_joy.py --hab-env-config-path ./configs/roam_configs/pointnav_rgbd_roam_mp3d_test_scenes.yaml --episode-id -1 --scene-id ./data/scene_datasets/mp3d/2t7WUuJeko7/2t7WUuJeko7.glb --video-frame-period 60
 ```
-然后新开一个terminal
-建图命令（注意，这会自动覆盖以前建好的地图~/.ros/rtabmap.db）：roslaunch habitat_navigation rtab_mapping.launch 用手柄遥控 建图结束后在终端ctrl+C即可，系统会自动保存地图在~/.ros/rtabmap.db 如果地图数据比较重要记得把这个文件拷贝出来
+然后新开一个terminal</br>
+建图命令（注意，这会自动覆盖以前建好的地图~/.ros/rtabmap.db）：roslaunch habitat_navigation rtab_mapping.launch 用手柄遥控 建图结束后在终端ctrl+C即可，系统会自动保存地图在~/.ros/rtabmap.db 如果地图数据比较重要记得把这个文件拷贝出来</br>
 
-这里的导航目前还有点问题 因为同时会有手柄节点发送速度指令为0的cmd_vel 而move_base也会发送规划好路径之后的cmd_vel 所以导航起来会一卡一卡的
+这里的导航目前还有点问题 因为同时会有手柄节点发送速度指令为0的cmd_vel 而move_base也会发送规划好路径之后的cmd_vel 所以导航起来会一卡一卡的</br>
 导航指令 roslaunch habitat_navigation rtab_navigation.launch 会自动调取~/.ros/rtabmap.db地图数据 注意 这里的initial_pose话题变成了/rtabmap/initial_pose，如果要从rviz窗口里设置initial_pose需要更改rviz发出的topic名(这个launch文件启动的rviz已经被我改好了) 
